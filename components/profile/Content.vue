@@ -9,17 +9,19 @@
         class="grid grid-cols-1 col-span-7 md:col-span-5 divide-y bg-white rounded-md shadow-sm"
       >
         <div class="grid grid-cols-9 divide-x space-x-1">
-          <div class="m-auto col-span-2">
+          <div class="m-auto col-span-3 lg:col-span-2">
             <img
               class="h-32 w-32 rounded-full"
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
               alt=""
             />
           </div>
-          <div class="col-span-7 p-6 space-y-4">
+          <div class="col-span-6 lg:col-span-7 p-6 space-y-4">
             <div class="flex justify-between items-center">
               <div>
-                <p class="text-xl font-bold">Reyven S. Biloy</p>
+                <p class="text-xl font-bold">
+                  {{ auth.user?.name ?? 'John Doe' }}
+                </p>
                 <p class="text-[#505669] font-semibold">UI/UX Designer</p>
               </div>
               <font-awesome-icon
@@ -85,7 +87,7 @@
           </div>
           <div class="flex flex-col gap-2 items-center">
             <p class="mt-4 text-primary font-semibold text-sm">
-              Well done, Reyven!
+              Well done, {{ auth.user?.name ?? 'John Doe' }}!
             </p>
             <img src="~/assets/images/medal.png" class="h-16" />
           </div>
@@ -174,6 +176,8 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
+
+const auth = useAuthStore();
 
 const generalDetails = [
   {

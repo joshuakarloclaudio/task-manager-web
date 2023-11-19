@@ -1,3 +1,4 @@
+import type auth from '~/middleware/auth';
 <template>
   <div
     v-show="showIntro"
@@ -15,7 +16,9 @@
           @click="showIntro = false"
         />
       </p>
-      <p class="font-bold text-lg">Welcome, Reyven!</p>
+      <p class="font-bold text-lg">
+        Welcome, {{ auth.user?.name ?? 'John Doe' }}!
+      </p>
       <p class="text-xs text-[#8b8f9d]">
         <span class="text-[#22c55e]">You are almost done!</span> To further
         strengthen your profile, it is highly recommended for you to complete
@@ -56,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+const auth = useAuthStore();
 const showIntro = ref(true);
 
 const widgets = [

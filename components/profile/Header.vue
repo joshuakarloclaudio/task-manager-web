@@ -75,8 +75,12 @@
             <BellIcon class="h-6 w-6" aria-hidden="true" />
           </button> -->
           <div class="text-right hidden md:block">
-            <p class="font-semibold text-sm">Reyven Biloy</p>
-            <p class="text-[#3656f5] text-xs">reyvenb@gmail.com</p>
+            <p class="font-semibold text-sm">
+              {{ auth.user?.name ?? 'John Doe' }}
+            </p>
+            <p class="text-[#3656f5] text-xs">
+              {{ auth.user?.email ?? 'john.doe@gmail.com' }}
+            </p>
           </div>
           <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">
@@ -122,56 +126,67 @@
       </div>
     </div>
 
-    <DisclosurePanel class="lg:hidden">
-      <div class="space-y-1 px-2 pb-3 pt-2">
-        <div class="flex-1 items-center justify-center">
-          <div class="w-full flex justify-end items-center relative">
-            <input
-              placeholder="Type for job title or role"
-              class="border border-[#d9dce3] text-md rounded-full py-2 px-6 w-full"
-            />
-            <button
-              class="absolute mr-2 bg-[#3656f5] text-white text-sm rounded-full px-4 py-1 flex items-center"
-            >
-              <font-awesome-icon
-                class="mr-2"
-                icon="fa-solid fa-magnifying-glass"
+    <transition
+      enter-active-class="transition duration-100 ease-out"
+      enter-from-class="transform scale-95 opacity-0"
+      enter-to-class="transform scale-100 opacity-100"
+      leave-active-class="transition duration-75 ease-out"
+      leave-from-class="transform scale-100 opacity-100"
+      leave-to-class="transform scale-95 opacity-0"
+    >
+      <DisclosurePanel class="lg:hidden">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <div class="flex-1 items-center justify-center">
+            <div class="w-full flex justify-end items-center relative">
+              <input
+                placeholder="Type for job title or role"
+                class="border border-[#d9dce3] text-md rounded-full py-2 px-6 w-full"
               />
-              Search
-            </button>
+              <button
+                class="absolute mr-2 bg-[#3656f5] text-white text-sm rounded-full px-4 py-1 flex items-center"
+              >
+                <font-awesome-icon
+                  class="mr-2"
+                  icon="fa-solid fa-magnifying-glass"
+                />
+                Search
+              </button>
+            </div>
           </div>
-        </div>
-        <DisclosureButton
-          v-for="item in navigation"
-          :key="item.name"
-          as="a"
-          :href="item.href"
-          :class="[
-            item.current
-              ? 'bg-gray-900 text-white'
-              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-            'block rounded-md px-3 py-2 text-base font-medium',
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</DisclosureButton
-        >
+          <DisclosureButton
+            v-for="item in navigation"
+            :key="item.name"
+            as="a"
+            :href="item.href"
+            :class="[
+              item.current
+                ? 'bg-gray-900 text-white'
+                : 'text-gray-700 hover:bg-[#3656f5] hover:text-white',
+              'block rounded-md px-3 py-2 text-base font-semibold',
+            ]"
+            :aria-current="item.current ? 'page' : undefined"
+            >{{ item.name }}</DisclosureButton
+          >
 
-        <DisclosureButton
-          v-for="item in sideNavigation"
-          :key="item.name"
-          as="a"
-          :href="item.href"
-          :class="[
-            item.current
-              ? 'bg-gray-900 text-white'
-              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-            'block rounded-md px-3 py-2 text-base font-medium',
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</DisclosureButton
-        >
-      </div>
-    </DisclosurePanel>
+          <hr />
+
+          <DisclosureButton
+            v-for="item in sideNavigation"
+            :key="item.name"
+            as="a"
+            :href="item.href"
+            :class="[
+              item.current
+                ? 'bg-gray-900 text-white'
+                : 'text-gray-700 hover:bg-[#3656f5] hover:text-white',
+              'block rounded-md px-3 text py-2 text-base font-semibold',
+            ]"
+            :aria-current="item.current ? 'page' : undefined"
+            >{{ item.name }}</DisclosureButton
+          >
+        </div>
+      </DisclosurePanel>
+    </transition>
   </Disclosure>
 </template>
 
@@ -185,6 +200,8 @@ import {
   MenuItem,
   MenuItems,
 } from '@headlessui/vue';
+
+const auth = useAuthStore();
 
 const navigation = [
   { name: 'Careers', href: '#', current: false },
