@@ -23,7 +23,7 @@
                 <p class="text-[#505669] font-semibold">UI/UX Designer</p>
               </div>
               <font-awesome-icon
-                class="text-[#8b8f9d]"
+                class="text-[#8b8f9d] cursor-pointer"
                 icon="fa-solid fa-pencil"
               />
             </div>
