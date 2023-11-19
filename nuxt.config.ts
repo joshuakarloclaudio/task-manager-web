@@ -7,4 +7,8 @@ export default defineNuxtConfig({
       baseUrl: 'http://localhost:8000',
     },
   },
+  css: [
+    '~/assets/css/main.css',
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ],
 });
