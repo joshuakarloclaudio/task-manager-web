@@ -26,7 +26,6 @@
     "@nuxt/ui": "^2.10.0",
     "@pinia/nuxt": "^0.5.1",
     "@types/luxon": "^3.3.4",
-    "luxon": "^3.4.4",
-    "vue-tailwind-datepicker": "^1.6.1"
+    "luxon": "^3.4.4"
   }
 }

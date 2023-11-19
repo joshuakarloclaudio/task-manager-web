@@ -6270,11 +6270,6 @@ vite-plugin-checker@^0.6.2:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
-vite-plugin-css-injected-by-js@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-css-injected-by-js/-/vite-plugin-css-injected-by-js-3.3.0.tgz#c19480a9e42a95c5bced976a9dde1446f9bd91ff"
-  integrity sha512-xG+jyHNCmUqi/TXp6q88wTJGeAOrNLSyUUTp4qEQ9QZLGcHWQQsCsSSKa59rPMQr8sOzfzmWDd8enGqfH/dBew==
-
 vite-plugin-inspect@^0.7.42:
   version "0.7.42"
   resolved "https://registry.yarnpkg.com/vite-plugin-inspect/-/vite-plugin-inspect-0.7.42.tgz#e055ad2ff82f3eca2f101fcfb29b5fabfe1e7366"
@@ -6382,14 +6377,6 @@ vue-router@^4.2.5:
   integrity sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
-
-vue-tailwind-datepicker@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/vue-tailwind-datepicker/-/vue-tailwind-datepicker-1.6.1.tgz#fd210c03711837442fe0bd079343a5239e6bd86a"
-  integrity sha512-+X4f+JTUc65hemfm15R9I4lCgJ3ChwGJzVrbiS64qIDujrI6HnfPXk53r/uO6Li3inplkiAta1M/xyHuLCcU6w==
-  dependencies:
-    "@vueuse/core" "^10.5.0"
-    vite-plugin-css-injected-by-js "^3.3.0"
 
 vue@^3.3.8:
   version "3.3.8"
