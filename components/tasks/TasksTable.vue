@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Task } from '~/types/task';
+import { type Task } from '~/types/task';
 import { DateTime } from 'luxon';
 
 const toast = useToast();

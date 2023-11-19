@@ -1,20 +1,6 @@
-type User = {
-  id: number;
-  name: string;
-  email: string;
-};
-
-type Credentials = {
-  email: string;
-  password: string;
-};
-
-type RegistrationInfo = {
-  name: string;
-  email: string;
-  password: string;
-  password_confirmation: string;
-};
+import { type User } from '~/types/user';
+import { type Credentials } from '~/types/credentials';
+import { type NewUser } from '~/types/new-user';
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null);
@@ -48,7 +34,7 @@ export const useAuthStore = defineStore('auth', () => {
     return login;
   };
 
-  const register = async (info: RegistrationInfo) => {
+  const register = async (info: NewUser) => {
     const register = await useApiFetch('/api/auth/register', {
       method: 'POST',
       body: info,

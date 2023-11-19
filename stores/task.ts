@@ -1,10 +1,5 @@
-import type { Task } from '~/types/task';
-
-interface TaskForm {
-  title: string;
-  description: string;
-  due_date: string;
-}
+import { type Task } from '~/types/task';
+import { type TaskForm } from '~/types/task-form';
 
 export const useTaskStore = defineStore('task', () => {
   const dialogIsOpen = ref(false);

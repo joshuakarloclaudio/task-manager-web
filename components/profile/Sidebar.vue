@@ -1,4 +1,3 @@
-import type { badge } from '@nuxt/ui/dist/runtime/ui.config';
 <template>
   <nav class="hidden lg:block w-72 flex flex-col items-start py-4 mt-6">
     <ul class="mt-2 space-y-2 text-[#797e8e] w-full">
